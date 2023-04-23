@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a82d5283-f23e-40ec-b62f-27442ad199e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/singlepage/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/singlepage/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/singlepage/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play_with_me/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_with_me/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play_with_me/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/play_with_me/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +52,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kubab\PycharmProjects\play-with-me\static\singlepage" />
+      <recent name="C:\Users\kubab\PycharmProjects\play-with-me\static" />
+      <recent name="C:\Users\kubab\PycharmProjects\play-with-me\template\singlepage" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="play-with-me" type="Python.DjangoServer" factoryName="Django server">
       <module name="play-with-me" />
@@ -85,7 +96,7 @@
       <workItem from="1682253054173" duration="682000" />
       <workItem from="1682254560760" duration="131000" />
       <workItem from="1682254702561" duration="53000" />
-      <workItem from="1682254764429" duration="1782000" />
+      <workItem from="1682254764429" duration="8940000" />
     </task>
     <servers />
   </component>
