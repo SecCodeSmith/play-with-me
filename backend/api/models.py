@@ -2,13 +2,9 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class TAG(models.Model):
-    tag_name = models.CharField(max_length=40)
-    types = models.CharField(max_length=1)
-
-
 class LANGUAGE(models.Model):
-    name = models.CharField(max_length=30)
+    crosscut = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
 
 
 class COUNTRY(models.Model):
@@ -21,12 +17,6 @@ class USER(AbstractUser):
     lang = models.ForeignKey(LANGUAGE, on_delete=models.CASCADE, default=1)
 
 
-class TAGS_USER(models.Model):
-    user = models.ForeignKey(USER, on_delete=models.CASCADE)
-    tags = models.ForeignKey(TAG, on_delete=models.CASCADE)
-    tags = models.ForeignKey(TAG, on_delete=models.CASCADE)
-
-
 class FRIENDSHIP(models.Model):
     user1 = models.ForeignKey(USER, on_delete=models.CASCADE, related_name='user1')
     user2 = models.ForeignKey(USER, on_delete=models.CASCADE, related_name='user2')
@@ -35,33 +25,18 @@ class FRIENDSHIP(models.Model):
 
 class GENRE(models.Model):
     name = models.CharField(max_length=40)
-    description = models.CharField(max_length=250)
-
-
-class COMPANY(models.Model):
-    date_of_incorporation = models.DateField()
-    name = models.CharField(max_length=30)
-    country = models.ForeignKey(COUNTRY, on_delete=models.CASCADE)
-    address = models.CharField(max_length=40)
+    description = models.CharField(max_length=250, null=True)
 
 
 class GAME(models.Model):
     name = models.CharField(max_length=40)
-    available_lang = models.ForeignKey(LANGUAGE, on_delete=models.CASCADE)
-    release_date = models.DateField()
-    description = models.CharField(max_length=1024)
-    developer = models.ForeignKey(COUNTRY, on_delete=models.CASCADE, related_name='developer')
-    publisher = models.ForeignKey(COUNTRY, on_delete=models.CASCADE, related_name='publisher')
-
-
-class TAGS_GAME(models.Model):
-    game = models.ForeignKey(GAME, on_delete=models.CASCADE)
-    tags = models.ForeignKey(TAG, on_delete=models.CASCADE)
-
-
-class GAME_GENRE(models.Model):
-    game = models.ForeignKey(GAME, on_delete=models.CASCADE)
-    genre = models.ForeignKey(GENRE, on_delete=models.CASCADE)
+    available_lang = models.ForeignKey(LANGUAGE, on_delete=models.CASCADE, null=True)
+    release_date = models.IntegerField()
+    description = models.CharField(max_length=1024, null=True)
+    publisher = models.CharField(max_length=50, null=True)
+    genre = models.ManyToManyField(GENRE, null=True, related_name="genre")
+    max_player = models.IntegerField(default=1)
+    online = models.BooleanField(default=False)
 
 
 class OPINION(models.Model):
@@ -73,5 +48,12 @@ class OPINION(models.Model):
 
 class EVENT(models.Model):
     game = models.ForeignKey(GAME, on_delete=models.CASCADE)
-    users = models.ForeignKey(USER, on_delete=models.CASCADE)
+    creator = models.ForeignKey(USER, on_delete=models.CASCADE)
     date_time = models.DateTimeField()
+
+
+class EVENT_PARTICIPANTS(models.Model):
+    event = models.ForeignKey(EVENT, on_delete=models.CASCADE)
+    user = models.ForeignKey(USER, on_delete=models.CASCADE)
+    modelator = models.BooleanField()
+    admin = models.BooleanField()
