@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Single Page</title>
+    <script>
+        const form = document.getElementById('login-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Send login credentials to API endpoint
+            fetch('http:127.0.0.1/api/login', {
+                method: 'POST',
+                body: JSON.stringify({username, password}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    alert(response);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</head>
+<body>
+<h1>Login Form</h1>
+<form id="login-form" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button data-section="3" type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>
