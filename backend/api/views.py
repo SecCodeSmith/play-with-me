@@ -19,13 +19,15 @@ def login(request):
         username = data.get('username')
         password = data.get('password')
         user = authenticate(username=username, password=password)
-    if user is not None:
-        log(request, user)
-        # User credentials are valid
-        return JsonResponse({'status': 'Login successful'})
+        if user is not None:
+            log(request, user)
+            # User credentials are valid
+            return JsonResponse({'status': 'Login successful'})
+        else:
+            # User credentials are invalid
+            return JsonResponse({'status': 'Login failed'})
     else:
-        # User credentials are invalid
-        return JsonResponse({'status': 'Login failed'})
+        return JsonResponse({'status': 'Accepted only post'})
 
 
 def log_out(request):
@@ -60,6 +62,8 @@ def register(request):
         else:
             respond['status'] = "Create new user fail"
         return JsonResponse(respond)
+    else:
+        return JsonResponse({'status': 'Accepted only post'})
 
 
 def is_auth_session(request):
@@ -89,3 +93,5 @@ def get_lang_list(request):
 def user_set_description(request):
     data = json.loads(request.body)
     usr.description = data['description']
+    usr.save()
+    return JsonResponse({'status': "success"})
