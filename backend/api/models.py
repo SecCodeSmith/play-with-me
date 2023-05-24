@@ -13,6 +13,19 @@ class USER(AbstractUser):
     lang = models.ManyToManyField(LANGUAGE)
     email = models.EmailField(_("email address"), blank=True, unique=True, null=True)
 
+    def create_user(username, password, email, lang, description=None):
+        lang = LANGUAGE.objects.get(lang)
+        if lang is None:
+            return False
+
+        user = USER.objects.create_user(username=username, password=password)
+        user.lang += lang
+        user.email = email
+        user.description = description
+        user.is_active = False
+        user.save()
+        return True
+
     class Meta:
         verbose_name = _("user")
         verbose_name_plural = _("users")
