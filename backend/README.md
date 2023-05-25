@@ -24,12 +24,13 @@ docker run -d \
 	-p 5432:5432 \
 	-v play_with_me:/var/lib/postgresql/data \
 	postgres
+docker exec -it play_with_me_db psql play_with_me_db < play_with_me_db_24_05_2023.sql
 ```
 windows:
 ```shell
 docker volume create play_with_me
 docker run -d --name play_with_me_db -e POSTGRES_PASSWORD='!Q2w3e4r' -e PGDATA=/var/lib/postgresql/data/pgdata -e POSTGRES_USER='play-with-me' -e POSTGRES_DB='play-with-me' -p 5432:5432 -v play_with_me:/var/lib/postgresql/data postgres
-docker exec -it psql play_with_me_db < play_with_me_db_24_05_2023.sql
+docker exec -it play_with_me_db psql play_with_me_db < play_with_me_db_24_05_2023.sql
 ```
 4. Uruchomienie aplikacji `py menage.py runserver`
 
