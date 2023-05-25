@@ -15,6 +15,12 @@
     </form>
 
     <script>
+        fetch('http://127.0.0.1:8000/api/tokenCNF')
+            .then(response => response.json())
+            .then(data => {
+                const csrfToken = data.csrf_token;
+                document.getElementById('csrf_token').value = csrfToken;
+            });
         // Add event listener to the form submission
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission

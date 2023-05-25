@@ -4,7 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class LANGUAGE(models.Model):
-    crosscut = models.CharField(max_length=30)
+    ISO_639_1 = models.CharField(max_length=2)
+    ISO_639_2 = models.CharField(max_length=3)
     name = models.CharField(max_length=100)
 
 

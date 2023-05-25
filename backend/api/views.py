@@ -86,7 +86,7 @@ def get_csrf_token(request):
 
 def get_lang_list(request):
     language = lang.objects.all()
-    respond = {l.crosscut: l.name for l in language}
+    respond = { l.name: {'ISO_639_1':l.ISO_639_1, 'ISO_639_2':l.ISO_639_2} for l in language}
     return JsonResponse(respond)
 
 

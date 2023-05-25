@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv('config.properties')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,7 +90,7 @@ WSGI_APPLICATION = 'play_with_me.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'play_with_me_db',
+        'NAME': 'play-with-me',
         'USER': 'play-with-me',
         'PASSWORD': '!Q2w3e4r',
         'HOST': '127.0.0.1',
@@ -142,7 +146,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='api.USER'
 
-CSRF_TRUSTED_ORIGINS=["http://*", "https://*"]
+CSRF_TRUSTED_ORIGINS=['https://kubab16-urban-lamp-p97rqvjjq5xf967j-8000.preview.app.github.dev','https://kubab16-urban-lamp-p97rqvjjq5xf967j-3000.preview.app.github.dev','http://localhost','http://127.0.0.1','https://localhost','https://127.0.0.1']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_COOKIE_SECURE = False
 
