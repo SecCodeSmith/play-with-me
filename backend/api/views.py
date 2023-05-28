@@ -44,15 +44,15 @@ def register(request):
         email = data['email']
         username = data['username']
         password = data['password1']
-        if data['password1'] == data['password2']:
-            request['password'] = "Passwords are not identical."
-        if usr.objects.get(email=email) is not None:
-            request['email'] = "Email is already in use."
-        if usr.objects.get(username=username):
-            request['email'] = "Username is already in use."
-        language = lang.objects.get(data['language'])
-        if language is None:
-            request['language'] = "Language don't exist."
+        if data['password1'] != data['password2']:
+            respond['password'] = "Passwords are not identical."
+        if usr.objects.filter(email=email).exists():
+            respond['email'] = "Email is already in use."
+        if usr.objects.filter(username=username).exists():
+            respond['username'] = "Username is already in use."
+        
+        language = lang.objects.filter(data['language'])
+        
         if len(respond) > 0:
             respond['status'] = "Create new user fail"
             return JsonResponse(respond)
@@ -63,8 +63,7 @@ def register(request):
             respond['status'] = "Create new user fail"
         return JsonResponse(respond)
     else:
-        return JsonResponse({'status': 'Accepted only post'})
-
+        return JsonResponse({'status': 'Accepted only POST'})
 
 def is_auth_session(request):
     respond = {}
@@ -86,7 +85,7 @@ def get_csrf_token(request):
 
 def get_lang_list(request):
     language = lang.objects.all()
-    respond = { l.name: {'ISO_639_1':l.ISO_639_1, 'ISO_639_2':l.ISO_639_2} for l in language}
+    respond = {l.name: {'ISO_639_1': l.ISO_639_1, 'ISO_639_2': l.ISO_639_2} for l in language}
     return JsonResponse(respond)
 
 
