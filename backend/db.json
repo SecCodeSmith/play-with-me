@@ -1,0 +1,2309 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 6,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 6,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 6,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 6,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add token",
+      "content_type": 7,
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change token",
+      "content_type": 7,
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete token",
+      "content_type": 7,
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view token",
+      "content_type": 7,
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 8,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add event",
+      "content_type": 9,
+      "codename": "add_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change event",
+      "content_type": 9,
+      "codename": "change_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete event",
+      "content_type": 9,
+      "codename": "delete_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view event",
+      "content_type": 9,
+      "codename": "view_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add game",
+      "content_type": 10,
+      "codename": "add_game"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change game",
+      "content_type": 10,
+      "codename": "change_game"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete game",
+      "content_type": 10,
+      "codename": "delete_game"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view game",
+      "content_type": 10,
+      "codename": "view_game"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add genre",
+      "content_type": 11,
+      "codename": "add_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change genre",
+      "content_type": 11,
+      "codename": "change_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete genre",
+      "content_type": 11,
+      "codename": "delete_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view genre",
+      "content_type": 11,
+      "codename": "view_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add language",
+      "content_type": 12,
+      "codename": "add_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change language",
+      "content_type": 12,
+      "codename": "change_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete language",
+      "content_type": 12,
+      "codename": "delete_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view language",
+      "content_type": 12,
+      "codename": "view_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add opinion",
+      "content_type": 13,
+      "codename": "add_opinion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change opinion",
+      "content_type": 13,
+      "codename": "change_opinion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete opinion",
+      "content_type": 13,
+      "codename": "delete_opinion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view opinion",
+      "content_type": 13,
+      "codename": "view_opinion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add friendship",
+      "content_type": 14,
+      "codename": "add_friendship"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change friendship",
+      "content_type": 14,
+      "codename": "change_friendship"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete friendship",
+      "content_type": 14,
+      "codename": "delete_friendship"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view friendship",
+      "content_type": 14,
+      "codename": "view_friendship"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add even t_participants",
+      "content_type": 15,
+      "codename": "add_event_participants"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change even t_participants",
+      "content_type": 15,
+      "codename": "change_event_participants"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete even t_participants",
+      "content_type": 15,
+      "codename": "delete_event_participants"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view even t_participants",
+      "content_type": 15,
+      "codename": "view_event_participants"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "token"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "tokenproxy"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "api",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "api",
+      "model": "event"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "api",
+      "model": "game"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "api",
+      "model": "genre"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "api",
+      "model": "language"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "api",
+      "model": "opinion"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "api",
+      "model": "friendship"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "api",
+      "model": "event_participants"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 1,
+    "fields": {
+      "ISO_639_1": "ab",
+      "ISO_639_2": "abk",
+      "name": "Abkhazian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 2,
+    "fields": {
+      "ISO_639_1": "aa",
+      "ISO_639_2": "aar",
+      "name": "Afar"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 3,
+    "fields": {
+      "ISO_639_1": "af",
+      "ISO_639_2": "afr",
+      "name": "Afrikaans"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 4,
+    "fields": {
+      "ISO_639_1": "ak",
+      "ISO_639_2": "aka",
+      "name": "Akan"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 5,
+    "fields": {
+      "ISO_639_1": "sq",
+      "ISO_639_2": "sqi",
+      "name": "Albanian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 6,
+    "fields": {
+      "ISO_639_1": "am",
+      "ISO_639_2": "amh",
+      "name": "Amharic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 7,
+    "fields": {
+      "ISO_639_1": "ar",
+      "ISO_639_2": "ara",
+      "name": "Arabic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 8,
+    "fields": {
+      "ISO_639_1": "an",
+      "ISO_639_2": "arg",
+      "name": "Aragonese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 9,
+    "fields": {
+      "ISO_639_1": "hy",
+      "ISO_639_2": "hye",
+      "name": "Armenian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 10,
+    "fields": {
+      "ISO_639_1": "as",
+      "ISO_639_2": "asm",
+      "name": "Assamese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 11,
+    "fields": {
+      "ISO_639_1": "av",
+      "ISO_639_2": "ava",
+      "name": "Avaric"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 12,
+    "fields": {
+      "ISO_639_1": "ae",
+      "ISO_639_2": "ave",
+      "name": "Avestan"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 13,
+    "fields": {
+      "ISO_639_1": "ay",
+      "ISO_639_2": "aym",
+      "name": "Aymara"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 14,
+    "fields": {
+      "ISO_639_1": "az",
+      "ISO_639_2": "aze",
+      "name": "Azerbaijani"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 15,
+    "fields": {
+      "ISO_639_1": "bm",
+      "ISO_639_2": "bam",
+      "name": "Bambara"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 16,
+    "fields": {
+      "ISO_639_1": "ba",
+      "ISO_639_2": "bak",
+      "name": "Bashkir"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 17,
+    "fields": {
+      "ISO_639_1": "eu",
+      "ISO_639_2": "eus",
+      "name": "Basque"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 18,
+    "fields": {
+      "ISO_639_1": "be",
+      "ISO_639_2": "bel",
+      "name": "Belarusian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 19,
+    "fields": {
+      "ISO_639_1": "bn",
+      "ISO_639_2": "ben",
+      "name": "Bengali"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 20,
+    "fields": {
+      "ISO_639_1": "bi",
+      "ISO_639_2": "bis",
+      "name": "Bislama"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 21,
+    "fields": {
+      "ISO_639_1": "bs",
+      "ISO_639_2": "bos",
+      "name": "Bosnian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 22,
+    "fields": {
+      "ISO_639_1": "br",
+      "ISO_639_2": "bre",
+      "name": "Breton"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 23,
+    "fields": {
+      "ISO_639_1": "bg",
+      "ISO_639_2": "bul",
+      "name": "Bulgarian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 24,
+    "fields": {
+      "ISO_639_1": "my",
+      "ISO_639_2": "mya",
+      "name": "Burmese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 25,
+    "fields": {
+      "ISO_639_1": "ca",
+      "ISO_639_2": "cat",
+      "name": "Catalan, Valencian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 26,
+    "fields": {
+      "ISO_639_1": "ch",
+      "ISO_639_2": "cha",
+      "name": "Chamorro"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 27,
+    "fields": {
+      "ISO_639_1": "ce",
+      "ISO_639_2": "che",
+      "name": "Chechen"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 28,
+    "fields": {
+      "ISO_639_1": "ny",
+      "ISO_639_2": "nya",
+      "name": "Chichewa, Chewa, Nyanja"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 29,
+    "fields": {
+      "ISO_639_1": "zh",
+      "ISO_639_2": "zho",
+      "name": "Chinese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 30,
+    "fields": {
+      "ISO_639_1": "cu",
+      "ISO_639_2": "chu",
+      "name": "Church Slavonic, Old Slavonic, Old Church Slavonic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 31,
+    "fields": {
+      "ISO_639_1": "cv",
+      "ISO_639_2": "chv",
+      "name": "Chuvash"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 32,
+    "fields": {
+      "ISO_639_1": "kw",
+      "ISO_639_2": "cor",
+      "name": "Cornish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 33,
+    "fields": {
+      "ISO_639_1": "co",
+      "ISO_639_2": "cos",
+      "name": "Corsican"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 34,
+    "fields": {
+      "ISO_639_1": "cr",
+      "ISO_639_2": "cre",
+      "name": "Cree"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 35,
+    "fields": {
+      "ISO_639_1": "hr",
+      "ISO_639_2": "hrv",
+      "name": "Croatian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 36,
+    "fields": {
+      "ISO_639_1": "cs",
+      "ISO_639_2": "ces",
+      "name": "Czech"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 37,
+    "fields": {
+      "ISO_639_1": "da",
+      "ISO_639_2": "dan",
+      "name": "Danish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 38,
+    "fields": {
+      "ISO_639_1": "dv",
+      "ISO_639_2": "div",
+      "name": "Divehi, Dhivehi, Maldivian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 39,
+    "fields": {
+      "ISO_639_1": "nl",
+      "ISO_639_2": "nld",
+      "name": "Dutch, Flemish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 40,
+    "fields": {
+      "ISO_639_1": "dz",
+      "ISO_639_2": "dzo",
+      "name": "Dzongkha"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 41,
+    "fields": {
+      "ISO_639_1": "en",
+      "ISO_639_2": "eng",
+      "name": "English"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 42,
+    "fields": {
+      "ISO_639_1": "eo",
+      "ISO_639_2": "epo",
+      "name": "Esperanto"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 43,
+    "fields": {
+      "ISO_639_1": "et",
+      "ISO_639_2": "est",
+      "name": "Estonian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 44,
+    "fields": {
+      "ISO_639_1": "ee",
+      "ISO_639_2": "ewe",
+      "name": "Ewe"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 45,
+    "fields": {
+      "ISO_639_1": "fo",
+      "ISO_639_2": "fao",
+      "name": "Faroese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 46,
+    "fields": {
+      "ISO_639_1": "fj",
+      "ISO_639_2": "fij",
+      "name": "Fijian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 47,
+    "fields": {
+      "ISO_639_1": "fi",
+      "ISO_639_2": "fin",
+      "name": "Finnish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 48,
+    "fields": {
+      "ISO_639_1": "fr",
+      "ISO_639_2": "fra",
+      "name": "French"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 49,
+    "fields": {
+      "ISO_639_1": "fy",
+      "ISO_639_2": "fry",
+      "name": "Western Frisian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 50,
+    "fields": {
+      "ISO_639_1": "ff",
+      "ISO_639_2": "ful",
+      "name": "Fulah"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 51,
+    "fields": {
+      "ISO_639_1": "gd",
+      "ISO_639_2": "gla",
+      "name": "Gaelic, Scottish Gaelic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 52,
+    "fields": {
+      "ISO_639_1": "gl",
+      "ISO_639_2": "glg",
+      "name": "Galician"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 53,
+    "fields": {
+      "ISO_639_1": "lg",
+      "ISO_639_2": "lug",
+      "name": "Ganda"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 54,
+    "fields": {
+      "ISO_639_1": "ka",
+      "ISO_639_2": "kat",
+      "name": "Georgian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 55,
+    "fields": {
+      "ISO_639_1": "de",
+      "ISO_639_2": "deu",
+      "name": "German"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 56,
+    "fields": {
+      "ISO_639_1": "el",
+      "ISO_639_2": "ell",
+      "name": "Greek, Modern (1453ΓÇô)"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 57,
+    "fields": {
+      "ISO_639_1": "kl",
+      "ISO_639_2": "kal",
+      "name": "Kalaallisut, Greenlandic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 58,
+    "fields": {
+      "ISO_639_1": "gn",
+      "ISO_639_2": "grn",
+      "name": "Guarani"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 59,
+    "fields": {
+      "ISO_639_1": "gu",
+      "ISO_639_2": "guj",
+      "name": "Gujarati"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 60,
+    "fields": {
+      "ISO_639_1": "ht",
+      "ISO_639_2": "hat",
+      "name": "Haitian, Haitian Creole"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 61,
+    "fields": {
+      "ISO_639_1": "ha",
+      "ISO_639_2": "hau",
+      "name": "Hausa"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 62,
+    "fields": {
+      "ISO_639_1": "he",
+      "ISO_639_2": "heb",
+      "name": "Hebrew"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 63,
+    "fields": {
+      "ISO_639_1": "hz",
+      "ISO_639_2": "her",
+      "name": "Herero"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 64,
+    "fields": {
+      "ISO_639_1": "hi",
+      "ISO_639_2": "hin",
+      "name": "Hindi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 65,
+    "fields": {
+      "ISO_639_1": "ho",
+      "ISO_639_2": "hmo",
+      "name": "Hiri Motu"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 66,
+    "fields": {
+      "ISO_639_1": "hu",
+      "ISO_639_2": "hun",
+      "name": "Hungarian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 67,
+    "fields": {
+      "ISO_639_1": "is",
+      "ISO_639_2": "isl",
+      "name": "Icelandic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 68,
+    "fields": {
+      "ISO_639_1": "io",
+      "ISO_639_2": "ido",
+      "name": "Ido"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 69,
+    "fields": {
+      "ISO_639_1": "ig",
+      "ISO_639_2": "ibo",
+      "name": "Igbo"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 70,
+    "fields": {
+      "ISO_639_1": "id",
+      "ISO_639_2": "ind",
+      "name": "Indonesian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 71,
+    "fields": {
+      "ISO_639_1": "ia",
+      "ISO_639_2": "ina",
+      "name": "Interlingua(International Auxiliary Language Association)"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 72,
+    "fields": {
+      "ISO_639_1": "ie",
+      "ISO_639_2": "ile",
+      "name": "Interlingue, Occidental"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 73,
+    "fields": {
+      "ISO_639_1": "iu",
+      "ISO_639_2": "iku",
+      "name": "Inuktitut"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 74,
+    "fields": {
+      "ISO_639_1": "ik",
+      "ISO_639_2": "ipk",
+      "name": "Inupiaq"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 75,
+    "fields": {
+      "ISO_639_1": "ga",
+      "ISO_639_2": "gle",
+      "name": "Irish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 76,
+    "fields": {
+      "ISO_639_1": "it",
+      "ISO_639_2": "ita",
+      "name": "Italian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 77,
+    "fields": {
+      "ISO_639_1": "ja",
+      "ISO_639_2": "jpn",
+      "name": "Japanese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 78,
+    "fields": {
+      "ISO_639_1": "jv",
+      "ISO_639_2": "jav",
+      "name": "Javanese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 79,
+    "fields": {
+      "ISO_639_1": "kn",
+      "ISO_639_2": "kan",
+      "name": "Kannada"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 80,
+    "fields": {
+      "ISO_639_1": "kr",
+      "ISO_639_2": "kau",
+      "name": "Kanuri"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 81,
+    "fields": {
+      "ISO_639_1": "ks",
+      "ISO_639_2": "kas",
+      "name": "Kashmiri"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 82,
+    "fields": {
+      "ISO_639_1": "kk",
+      "ISO_639_2": "kaz",
+      "name": "Kazakh"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 83,
+    "fields": {
+      "ISO_639_1": "km",
+      "ISO_639_2": "khm",
+      "name": "Central Khmer"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 84,
+    "fields": {
+      "ISO_639_1": "ki",
+      "ISO_639_2": "kik",
+      "name": "Kikuyu, Gikuyu"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 85,
+    "fields": {
+      "ISO_639_1": "rw",
+      "ISO_639_2": "kin",
+      "name": "Kinyarwanda"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 86,
+    "fields": {
+      "ISO_639_1": "ky",
+      "ISO_639_2": "kir",
+      "name": "Kirghiz, Kyrgyz"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 87,
+    "fields": {
+      "ISO_639_1": "kv",
+      "ISO_639_2": "kom",
+      "name": "Komi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 88,
+    "fields": {
+      "ISO_639_1": "kg",
+      "ISO_639_2": "kon",
+      "name": "Kongo"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 89,
+    "fields": {
+      "ISO_639_1": "ko",
+      "ISO_639_2": "kor",
+      "name": "Korean"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 90,
+    "fields": {
+      "ISO_639_1": "kj",
+      "ISO_639_2": "kua",
+      "name": "Kuanyama, Kwanyama"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 91,
+    "fields": {
+      "ISO_639_1": "ku",
+      "ISO_639_2": "kur",
+      "name": "Kurdish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 92,
+    "fields": {
+      "ISO_639_1": "lo",
+      "ISO_639_2": "lao",
+      "name": "Lao"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 93,
+    "fields": {
+      "ISO_639_1": "la",
+      "ISO_639_2": "lat",
+      "name": "Latin"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 94,
+    "fields": {
+      "ISO_639_1": "lv",
+      "ISO_639_2": "lav",
+      "name": "Latvian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 95,
+    "fields": {
+      "ISO_639_1": "li",
+      "ISO_639_2": "lim",
+      "name": "Limburgan, Limburger, Limburgish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 96,
+    "fields": {
+      "ISO_639_1": "ln",
+      "ISO_639_2": "lin",
+      "name": "Lingala"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 97,
+    "fields": {
+      "ISO_639_1": "lt",
+      "ISO_639_2": "lit",
+      "name": "Lithuanian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 98,
+    "fields": {
+      "ISO_639_1": "lu",
+      "ISO_639_2": "lub",
+      "name": "Luba-Katanga"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 99,
+    "fields": {
+      "ISO_639_1": "lb",
+      "ISO_639_2": "ltz",
+      "name": "Luxembourgish, Letzeburgesch"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 100,
+    "fields": {
+      "ISO_639_1": "mk",
+      "ISO_639_2": "mkd",
+      "name": "Macedonian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 101,
+    "fields": {
+      "ISO_639_1": "mg",
+      "ISO_639_2": "mlg",
+      "name": "Malagasy"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 102,
+    "fields": {
+      "ISO_639_1": "ms",
+      "ISO_639_2": "msa",
+      "name": "Malay"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 103,
+    "fields": {
+      "ISO_639_1": "ml",
+      "ISO_639_2": "mal",
+      "name": "Malayalam"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 104,
+    "fields": {
+      "ISO_639_1": "mt",
+      "ISO_639_2": "mlt",
+      "name": "Maltese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 105,
+    "fields": {
+      "ISO_639_1": "gv",
+      "ISO_639_2": "glv",
+      "name": "Manx"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 106,
+    "fields": {
+      "ISO_639_1": "mi",
+      "ISO_639_2": "mri",
+      "name": "Maori"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 107,
+    "fields": {
+      "ISO_639_1": "mr",
+      "ISO_639_2": "mar",
+      "name": "Marathi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 108,
+    "fields": {
+      "ISO_639_1": "mh",
+      "ISO_639_2": "mah",
+      "name": "Marshallese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 109,
+    "fields": {
+      "ISO_639_1": "mn",
+      "ISO_639_2": "mon",
+      "name": "Mongolian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 110,
+    "fields": {
+      "ISO_639_1": "na",
+      "ISO_639_2": "nau",
+      "name": "Nauru"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 111,
+    "fields": {
+      "ISO_639_1": "nv",
+      "ISO_639_2": "nav",
+      "name": "Navajo, Navaho"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 112,
+    "fields": {
+      "ISO_639_1": "nd",
+      "ISO_639_2": "nde",
+      "name": "North Ndebele"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 113,
+    "fields": {
+      "ISO_639_1": "nr",
+      "ISO_639_2": "nbl",
+      "name": "South Ndebele"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 114,
+    "fields": {
+      "ISO_639_1": "ng",
+      "ISO_639_2": "ndo",
+      "name": "Ndonga"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 115,
+    "fields": {
+      "ISO_639_1": "ne",
+      "ISO_639_2": "nep",
+      "name": "Nepali"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 116,
+    "fields": {
+      "ISO_639_1": "no",
+      "ISO_639_2": "nor",
+      "name": "Norwegian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 117,
+    "fields": {
+      "ISO_639_1": "nb",
+      "ISO_639_2": "nob",
+      "name": "Norwegian Bokm├Ñl"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 118,
+    "fields": {
+      "ISO_639_1": "nn",
+      "ISO_639_2": "nno",
+      "name": "Norwegian Nynorsk"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 119,
+    "fields": {
+      "ISO_639_1": "ii",
+      "ISO_639_2": "iii",
+      "name": "Sichuan Yi, Nuosu"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 120,
+    "fields": {
+      "ISO_639_1": "oc",
+      "ISO_639_2": "oci",
+      "name": "Occitan"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 121,
+    "fields": {
+      "ISO_639_1": "oj",
+      "ISO_639_2": "oji",
+      "name": "Ojibwa"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 122,
+    "fields": {
+      "ISO_639_1": "or",
+      "ISO_639_2": "ori",
+      "name": "Oriya"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 123,
+    "fields": {
+      "ISO_639_1": "om",
+      "ISO_639_2": "orm",
+      "name": "Oromo"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 124,
+    "fields": {
+      "ISO_639_1": "os",
+      "ISO_639_2": "oss",
+      "name": "Ossetian, Ossetic"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 125,
+    "fields": {
+      "ISO_639_1": "pi",
+      "ISO_639_2": "pli",
+      "name": "Pali"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 126,
+    "fields": {
+      "ISO_639_1": "ps",
+      "ISO_639_2": "pus",
+      "name": "Pashto, Pushto"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 127,
+    "fields": {
+      "ISO_639_1": "fa",
+      "ISO_639_2": "fas",
+      "name": "Persian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 128,
+    "fields": {
+      "ISO_639_1": "pl",
+      "ISO_639_2": "pol",
+      "name": "Polish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 129,
+    "fields": {
+      "ISO_639_1": "pt",
+      "ISO_639_2": "por",
+      "name": "Portuguese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 130,
+    "fields": {
+      "ISO_639_1": "pa",
+      "ISO_639_2": "pan",
+      "name": "Punjabi, Panjabi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 131,
+    "fields": {
+      "ISO_639_1": "qu",
+      "ISO_639_2": "que",
+      "name": "Quechua"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 132,
+    "fields": {
+      "ISO_639_1": "ro",
+      "ISO_639_2": "ron",
+      "name": "Romanian,Moldavian, Moldovan"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 133,
+    "fields": {
+      "ISO_639_1": "rm",
+      "ISO_639_2": "roh",
+      "name": "Romansh"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 134,
+    "fields": {
+      "ISO_639_1": "rn",
+      "ISO_639_2": "run",
+      "name": "Rundi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 135,
+    "fields": {
+      "ISO_639_1": "ru",
+      "ISO_639_2": "rus",
+      "name": "Russian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 136,
+    "fields": {
+      "ISO_639_1": "se",
+      "ISO_639_2": "sme",
+      "name": "Northern Sami"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 137,
+    "fields": {
+      "ISO_639_1": "sm",
+      "ISO_639_2": "smo",
+      "name": "Samoan"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 138,
+    "fields": {
+      "ISO_639_1": "sg",
+      "ISO_639_2": "sag",
+      "name": "Sango"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 139,
+    "fields": {
+      "ISO_639_1": "sa",
+      "ISO_639_2": "san",
+      "name": "Sanskrit"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 140,
+    "fields": {
+      "ISO_639_1": "sc",
+      "ISO_639_2": "srd",
+      "name": "Sardinian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 141,
+    "fields": {
+      "ISO_639_1": "sr",
+      "ISO_639_2": "srp",
+      "name": "Serbian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 142,
+    "fields": {
+      "ISO_639_1": "sn",
+      "ISO_639_2": "sna",
+      "name": "Shona"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 143,
+    "fields": {
+      "ISO_639_1": "sd",
+      "ISO_639_2": "snd",
+      "name": "Sindhi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 144,
+    "fields": {
+      "ISO_639_1": "si",
+      "ISO_639_2": "sin",
+      "name": "Sinhala, Sinhalese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 145,
+    "fields": {
+      "ISO_639_1": "sk",
+      "ISO_639_2": "slk",
+      "name": "Slovak"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 146,
+    "fields": {
+      "ISO_639_1": "sl",
+      "ISO_639_2": "slv",
+      "name": "Slovenian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 147,
+    "fields": {
+      "ISO_639_1": "so",
+      "ISO_639_2": "som",
+      "name": "Somali"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 148,
+    "fields": {
+      "ISO_639_1": "st",
+      "ISO_639_2": "sot",
+      "name": "Southern Sotho"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 149,
+    "fields": {
+      "ISO_639_1": "es",
+      "ISO_639_2": "spa",
+      "name": "Spanish, Castilian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 150,
+    "fields": {
+      "ISO_639_1": "su",
+      "ISO_639_2": "sun",
+      "name": "Sundanese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 151,
+    "fields": {
+      "ISO_639_1": "sw",
+      "ISO_639_2": "swa",
+      "name": "Swahili"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 152,
+    "fields": {
+      "ISO_639_1": "ss",
+      "ISO_639_2": "ssw",
+      "name": "Swati"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 153,
+    "fields": {
+      "ISO_639_1": "sv",
+      "ISO_639_2": "swe",
+      "name": "Swedish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 154,
+    "fields": {
+      "ISO_639_1": "tl",
+      "ISO_639_2": "tgl",
+      "name": "Tagalog"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 155,
+    "fields": {
+      "ISO_639_1": "ty",
+      "ISO_639_2": "tah",
+      "name": "Tahitian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 156,
+    "fields": {
+      "ISO_639_1": "tg",
+      "ISO_639_2": "tgk",
+      "name": "Tajik"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 157,
+    "fields": {
+      "ISO_639_1": "ta",
+      "ISO_639_2": "tam",
+      "name": "Tamil"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 158,
+    "fields": {
+      "ISO_639_1": "tt",
+      "ISO_639_2": "tat",
+      "name": "Tatar"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 159,
+    "fields": {
+      "ISO_639_1": "te",
+      "ISO_639_2": "tel",
+      "name": "Telugu"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 160,
+    "fields": {
+      "ISO_639_1": "th",
+      "ISO_639_2": "tha",
+      "name": "Thai"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 161,
+    "fields": {
+      "ISO_639_1": "bo",
+      "ISO_639_2": "bod",
+      "name": "Tibetan"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 162,
+    "fields": {
+      "ISO_639_1": "ti",
+      "ISO_639_2": "tir",
+      "name": "Tigrinya"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 163,
+    "fields": {
+      "ISO_639_1": "to",
+      "ISO_639_2": "ton",
+      "name": "Tonga(Tonga Islands)"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 164,
+    "fields": {
+      "ISO_639_1": "ts",
+      "ISO_639_2": "tso",
+      "name": "Tsonga"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 165,
+    "fields": {
+      "ISO_639_1": "tn",
+      "ISO_639_2": "tsn",
+      "name": "Tswana"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 166,
+    "fields": {
+      "ISO_639_1": "tr",
+      "ISO_639_2": "tur",
+      "name": "Turkish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 167,
+    "fields": {
+      "ISO_639_1": "tk",
+      "ISO_639_2": "tuk",
+      "name": "Turkmen"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 168,
+    "fields": {
+      "ISO_639_1": "tw",
+      "ISO_639_2": "twi",
+      "name": "Twi"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 169,
+    "fields": {
+      "ISO_639_1": "ug",
+      "ISO_639_2": "uig",
+      "name": "Uighur, Uyghur"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 170,
+    "fields": {
+      "ISO_639_1": "uk",
+      "ISO_639_2": "ukr",
+      "name": "Ukrainian"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 171,
+    "fields": {
+      "ISO_639_1": "ur",
+      "ISO_639_2": "urd",
+      "name": "Urdu"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 172,
+    "fields": {
+      "ISO_639_1": "uz",
+      "ISO_639_2": "uzb",
+      "name": "Uzbek"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 173,
+    "fields": {
+      "ISO_639_1": "ve",
+      "ISO_639_2": "ven",
+      "name": "Venda"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 174,
+    "fields": {
+      "ISO_639_1": "vi",
+      "ISO_639_2": "vie",
+      "name": "Vietnamese"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 175,
+    "fields": {
+      "ISO_639_1": "vo",
+      "ISO_639_2": "vol",
+      "name": "Volap├╝k"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 176,
+    "fields": {
+      "ISO_639_1": "wa",
+      "ISO_639_2": "wln",
+      "name": "Walloon"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 177,
+    "fields": {
+      "ISO_639_1": "cy",
+      "ISO_639_2": "cym",
+      "name": "Welsh"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 178,
+    "fields": {
+      "ISO_639_1": "wo",
+      "ISO_639_2": "wol",
+      "name": "Wolof"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 179,
+    "fields": {
+      "ISO_639_1": "xh",
+      "ISO_639_2": "xho",
+      "name": "Xhosa"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 180,
+    "fields": {
+      "ISO_639_1": "yi",
+      "ISO_639_2": "yid",
+      "name": "Yiddish"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 181,
+    "fields": {
+      "ISO_639_1": "yo",
+      "ISO_639_2": "yor",
+      "name": "Yoruba"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 182,
+    "fields": {
+      "ISO_639_1": "za",
+      "ISO_639_2": "zha",
+      "name": "Zhuang, Chuang"
+    }
+  },
+  {
+    "model": "api.language",
+    "pk": 183,
+    "fields": {
+      "ISO_639_1": "zu",
+      "ISO_639_2": "zul",
+      "name": "Zulu"
+    }
+  }
+]

@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv('config.properties')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,9 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'rest_framework.authtoken',
-    'singlepage',
     'api',
 ]
 
@@ -86,11 +88,23 @@ WSGI_APPLICATION = 'play_with_me.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'play_with_me_db',
-        'USER': 'play-with-me',
-        'PASSWORD': '!Q2w3e4r',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': os.getenv('databse.name'),
+        'USER': os.getenv('databse.user'),
+        'PASSWORD': os.getenv('databse.password'),
+        'HOST': os.getenv('databse.host'),
+        'PORT': os.getenv('databse.port'),
+    },
+    'replica': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('databse.name'),
+        'USER': os.getenv('databse.user'),
+        'PASSWORD': os.getenv('databse.password'),
+        'HOST': os.getenv('databse.host'),
+        'PORT': os.getenv('databse.port'),
+        'TEST': {
+            'MIRROR': 'default',
+        },
+        # ... plus some other settings
     }
 }
 
@@ -130,10 +144,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    "static",
-)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -142,7 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='api.USER'
 
-CSRF_TRUSTED_ORIGINS=["http://*", "https://*"]
+CSRF_TRUSTED_ORIGINS=['http://localhost','http://127.0.0.1','https://localhost','https://127.0.0.1']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_COOKIE_SECURE = False
 

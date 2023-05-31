@@ -24,21 +24,15 @@ docker run -d \
 	-p 5432:5432 \
 	-v play_with_me:/var/lib/postgresql/data \
 	postgres
-docker exec -it play_with_me_db psql play_with_me_db < play_with_me_db_24_05_2023.sql
+python ./manage.py loaddata db.json 
 ```
 windows:
 ```shell
 docker volume create play_with_me
 docker run -d --name play_with_me_db -e POSTGRES_PASSWORD='!Q2w3e4r' -e PGDATA=/var/lib/postgresql/data/pgdata -e POSTGRES_USER='play-with-me' -e POSTGRES_DB='play-with-me' -p 5432:5432 -v play_with_me:/var/lib/postgresql/data postgres
-docker exec -it play_with_me_db psql play_with_me_db < play_with_me_db_24_05_2023.sql
+py.exe ./manage.py loaddata db.json 
 ```
 4. Uruchomienie aplikacji `py menage.py runserver`
 
 ## Foldery
-
-- singlepage - folder zawierający obsługę wyświetlania informacji oraz działań nie wymagających logowania
-- static/css - folder zawierający pliki css (formatowanie strony dla niewtajemniczonych) -- Dla apki testowej (bez znaczenia dla projektu)
-- static/img - folder zawierający pliki zdjęć np favicon, ikona itd. -- Dla apki testowej (bez znaczenia dla projektu)
-- static/js - folder zawierający pliki skrypty javaScript używane globalnie.-- Dla apki testowej (bez znaczenia dla projektu)
-- template - miejsce na pliki html strony -- Dla apki testowej (bez znaczenia dla projektu)
 - api - folder zawierający bardziej skomplikowane usługi tzn. wymagających używietelnienia
