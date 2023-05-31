@@ -43,10 +43,10 @@ class UserManager(UserManager):
         user.description = description
         user.is_active = True
         user.save()
-        return True
+        return user
 
 
-class USER(AbstractUser):
+class User(AbstractUser):
     description = models.CharField(max_length=1024, default="")
     lang = models.ManyToManyField(LANGUAGE)
     email = models.EmailField(
@@ -63,14 +63,15 @@ class USER(AbstractUser):
 
 class FRIENDSHIP(models.Model):
     user1 = models.ForeignKey(
-        USER, on_delete=models.CASCADE, related_name='user1')
+        User, on_delete=models.CASCADE, related_name='user1')
     user2 = models.ForeignKey(
-        USER, on_delete=models.CASCADE, related_name='user2')
+        User, on_delete=models.CASCADE, related_name='user2')
     create_date = models.DateField()
+    active = models.BooleanField(default=False)
 
 
 class GENRE(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, unique=True)
     description = models.CharField(max_length=250, null=True)
 
 
@@ -120,7 +121,7 @@ class GAME(models.Model):
 
 
 class OPINION(models.Model):
-    user = models.ForeignKey(USER, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(GAME, on_delete=models.CASCADE)
     comment = models.CharField(max_length=1024)
     star = models.DecimalField(max_digits=2, decimal_places=1)
@@ -128,12 +129,12 @@ class OPINION(models.Model):
 
 class EVENT(models.Model):
     game = models.ForeignKey(GAME, on_delete=models.CASCADE)
-    creator = models.ForeignKey(USER, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_time = models.DateTimeField()
 
 
 class EVENT_PARTICIPANTS(models.Model):
     event = models.ForeignKey(EVENT, on_delete=models.CASCADE)
-    user = models.ForeignKey(USER, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     modelator = models.BooleanField()
     admin = models.BooleanField()

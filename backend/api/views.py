@@ -1,9 +1,11 @@
 import json
 
 from django.contrib.auth import login as log, logout, authenticate
+from django.contrib.auth.hashers import make_password
 from django.http import JsonResponse
 from django.middleware.csrf import get_token
-from api.models import USER as usr, LANGUAGE as lang
+from api.models import User as usr, LANGUAGE as lang, FRIENDSHIP
+from datetime import date
 
 
 def index(request):
@@ -111,7 +113,138 @@ def get_lang(request):
 
 
 def user_set_description(request):
-    data = json.loads(request.body)
-    usr.description = data['description']
-    usr.save()
-    return JsonResponse({'status': "success"})
+    respond = {}
+    if request.user.is_authenticated and request.method == 'POST':
+        data = json.loads(request.body)
+        user = usr.objects.get(pk=request.user.pk)
+        user.description = data['description']
+        user.save()
+        respond['status'] = True
+        respond['mess'] = 'User description updated.'
+        respond['description'] = data['description']
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Authorisation fail.'
+
+    return JsonResponse(respond)
+
+
+def change_password(request):
+    respond = {}
+    if request.user.is_authenticated and request.method == 'POST':
+        data = json.loads(request.body)
+        password = data['password']
+        new_password1 = data['new_password1']
+        new_password2 = data['new_password2']
+        user = authenticate(username=request.user.username, password=password)
+        if user is not None:
+            user = usr.objects.get(pk=request.user.pk)
+            if new_password1 == new_password2:
+                user.password = make_password(new_password1)
+                user.save()
+                respond['status'] = True
+                respond['mess'] = 'User password updated.'
+            else:
+                respond['status'] = False
+                respond['mess'] = 'Fail passwords are not the same.'
+        else:
+            respond['status'] = False
+            respond['mess'] = 'Not a valid password.'
+
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Authorisation fail.'
+    return JsonResponse(respond)
+
+
+def add_friendship(request):
+    respond = {}
+    if request.user.is_authenticated and request.method == 'POST':
+        data = json.loads(request.body)
+        user1 = usr.objects.get(pk=request.user.pk)
+        pk2 = data.get('pk')
+        username = data.get('username')
+        if pk2 is not None:
+            try:
+                user2 = usr.objects.get(pk=pk2)
+            except usr.DoesNotExist:
+                user2 = None
+
+        if username is not None and user2 is not None:
+            try:
+                user2 = usr.objects.get(username=username)
+            except FRIENDSHIP.DoesNotExist:
+                user2 = None
+        if user2 is None:
+            respond['status'] = False
+            respond['mess'] = 'User don\'t found.'
+            return JsonResponse(respond)
+        if user1.pk == user2.pk:
+            respond['status'] = False
+            respond['mess'] = 'You can\'t invite to friend yourself.'
+        else:
+            FRIENDSHIP.objects.create(create_date=date.today(), user1=user1, user2=user2).save()
+            respond['status'] = True
+            respond['mess'] = 'Invition sent.'
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Authorisation fail.'
+    return JsonResponse(respond)
+
+
+def active_friendship_invite(request):
+    respond = {}
+    if request.user.is_authenticated and request.method == 'POST':
+
+        try:
+            list = FRIENDSHIP.objects.filter(user2=request.user, active=False)
+        except FRIENDSHIP.DoesNotExist:
+            list = []
+
+        respond['status'] = True
+        respond['list'] = {inv.pk: inv.user1.username for inv in list}
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Authorisation fail.'
+    return JsonResponse(respond)
+
+
+def accept_invite(request):
+    respond = {}
+    if request.user.is_authenticated and request.method == 'POST':
+        data = json.loads(request.body)
+        try:
+            inv = FRIENDSHIP.objects.get(pk=data['pk'])
+        except FRIENDSHIP.DoesNotExist:
+            inv = None
+
+        if inv is not None:
+            if inv.user2 == request.user:
+                inv.active = True
+                inv.save()
+                respond['status'] = True
+                respond['mess'] = 'Invition accepted.'
+            else:
+                respond['status'] = False
+                respond['mess'] = 'Authorisation fail.'
+        else:
+            respond['status'] = False
+            respond['mess'] = 'Invition dosn\'t exist.'
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Authorisation fail.'
+    return JsonResponse(respond)
+
+def get_my_profile(request):
+    respond = {}
+    if request.user.is_authenticated:
+        user = usr.objects.get(pk = request.user.pk)
+        lang_user = user.lang.all()
+        respond['status'] = True
+        respond['username'] = user.username
+        respond['email'] = user.email
+        respond['lang'] = {l.name: {'ISO_639_1': l.ISO_639_1, 'ISO_639_2': l.ISO_639_2} for l in lang_user}
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Authorisation fail.'
+    return JsonResponse(respond)
