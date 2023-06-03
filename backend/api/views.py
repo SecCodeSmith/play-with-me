@@ -248,3 +248,53 @@ def get_my_profile(request):
         respond['status'] = False
         respond['mess'] = 'Authorisation fail.'
     return JsonResponse(respond)
+
+
+def get_users(request):
+    respond = {}
+    username = None
+    email = None
+    user = None
+    if request.method == 'POST':
+        if request.body is not None:
+            if request.content_type == 'application/json':
+                data = json.loads(request.body)
+                username = data.get('username')
+                email = data.get('email')
+            else:
+                respond['status'] = False
+                respond['mess'] = 'Wrong content type.'
+                return JsonResponse(respond)
+    elif request.method == 'GET':
+        username = request.GET.get('username')
+        email = request.GET.get('email')
+    else:
+        respond['status'] = False
+        respond['mess'] = 'Accept only post or get.'
+        return JsonResponse(respond)
+    try:
+        if username is not None:
+            if '%' in username:
+                user = usr.objects.filter(username__like=username)
+            else:
+                user = usr.objects.get(username=username)
+
+        if user is None and email is not None:
+            if '%' in email:
+                user = usr.objects.filter(email__like=email)
+            else:
+                user = usr.objects.filter(email=email)
+
+    except usr.DoesNotExist:
+        user = None
+
+    if user is None and username is None and email is None:
+        user = usr.objects.all()
+    if user is not None:
+        respond['status'] = True
+        respond['mess'] = 'Operation success.'
+        respond['list'] = {u.pk: {'email': u.email, 'username':  u.username} for u in user}
+    else:
+        respond['status'] = True
+        respond['mess'] = 'User don\'t found'
+    return JsonResponse(respond)

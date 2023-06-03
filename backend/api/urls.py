@@ -16,4 +16,5 @@ urlpatterns = [
     path("invideList/", views.active_friendship_invite, name="active_friendship_invite"),
     path("acceptFriendship/", views.accept_invite, name="accept_invite"),
     path("myProfile/", views.get_my_profile, name="get_my_profile"),
+    path("getUser/", views.get_users, name="get_users"),
 ]

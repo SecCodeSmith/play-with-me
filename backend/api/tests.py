@@ -502,4 +502,82 @@ class ViewsTestCase(TestCase):
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
+class TestSearchUser(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.language = LANGUAGE.objects.create(ISO_639_1='en', ISO_639_2='eng', name='English')
+        self.user = User.objects.create_user(username='testuser', password='testpassword', lang=self.language, email="example@example.com")
+        self.user1 = User.objects.create_user(username='testuser1', password='testpassword', lang=self.language, email="example1@example.com")
+        self.user2 = User.objects.create_user(username='testuser2', password='testpassword', lang=self.language, email="example2@example.com")
+        self.user3 = User.objects.create_user(username='testuser3', password='testpassword', lang=self.language, email="example3@example.com")
+        self.user4 = User.objects.create_user(username='testuser4', password='testpassword', lang=self.language, email="example4@example.com")
+        self.user5 = User.objects.create_user(username='testuser5', password='testpassword', lang=self.language, email="example5@example.com")
+        self.user6 = User.objects.create_user(username='user', password='testpassword', lang=self.language, email="exampl6@example.com")
+        self.user7 = User.objects.create_user(username='user1', password='testpassword', lang=self.language, email="example7@example.com")
+        self.user8 = User.objects.create_user(username='user2', password='testpassword', lang=self.language, email="example8@example.com")
+        self.user9 = User.objects.create_user(username='user3', password='testpassword', lang=self.language, email="example9@example.com")
+    def test_list_of_all_user_post(self):
+        response = self.client.post(reverse('get_users'), content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
 
+        self.assertEqual(len(response_data['list']), 10)
+        self.assertTrue(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Operation success.')
+
+    def test_list_of_all_user_invalid_post_contest_type(self):
+        response = self.client.post(reverse('get_users'), content_type='test')
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
+
+        self.assertFalse(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Wrong content type.')
+
+    def test_list_of_all_user(self):
+        response = self.client.get(reverse('get_users'))
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
+
+        self.assertEqual(len(response_data['list']), 10)
+        self.assertTrue(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Operation success.')
+
+    def test_list_of_username_chose_like_user(self):
+        data = {'username': 'user%'}
+        response = self.client.post(reverse('get_users'), data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
+
+        self.assertTrue(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Operation success.')
+        self.assertEqual(len(response_data['list']), 4)
+
+    def test_list_of_username_chose_like_all_character(self):
+        data = {'username': '%'}
+        response = self.client.post(reverse('get_users'), data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
+
+        self.assertTrue(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Operation success.')
+        self.assertEqual(len(response_data['list']), 10)
+
+    def test_list_of_email_chose_like_user(self):
+        data = {'email': '%1%'}
+        response = self.client.post(reverse('get_users'), data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
+
+        self.assertTrue(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Operation success.')
+        self.assertEqual(len(response_data['list']), 1)
+
+    def test_list_of_email_chose_like_all_character(self):
+        data = {'email': '%'}
+        response = self.client.post(reverse('get_users'), data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        response_data = response.json()
+
+        self.assertTrue(response_data['status'])
+        self.assertEqual(response_data['mess'], 'Operation success.')
+        self.assertEqual(len(response_data['list']), 10)
