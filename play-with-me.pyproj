@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{26ee058c-5890-4836-8f6f-79afcff6a010}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="api\admin.py" />
+    <Compile Include="api\apps.py" />
+    <Compile Include="api\migrations\__init__.py" />
+    <Compile Include="api\models.py" />
+    <Compile Include="api\tests.py" />
+    <Compile Include="api\urls.py" />
+    <Compile Include="api\views.py" />
+    <Compile Include="api\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="play_with_me\asgi.py" />
+    <Compile Include="play_with_me\settings.py" />
+    <Compile Include="play_with_me\urls.py" />
+    <Compile Include="play_with_me\wsgi.py" />
+    <Compile Include="play_with_me\__init__.py" />
+    <Compile Include="singlepage\admin.py" />
+    <Compile Include="singlepage\apps.py" />
+    <Compile Include="singlepage\migrations\__init__.py" />
+    <Compile Include="singlepage\models.py" />
+    <Compile Include="singlepage\tests.py" />
+    <Compile Include="singlepage\urls.py" />
+    <Compile Include="singlepage\views.py" />
+    <Compile Include="singlepage\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="static\css\style.css" />
+    <Content Include="template\singlepage\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="api" />
+    <Folder Include="api\migrations" />
+    <Folder Include="play_with_me" />
+    <Folder Include="singlepage" />
+    <Folder Include="singlepage\migrations" />
+    <Folder Include="static\css" />
+    <Folder Include="template\singlepage" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
