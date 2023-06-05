@@ -11,39 +11,37 @@ export default function Register(){
   
 
     function handlePost(data) {
-        setFormData(data);
-        reset();
-      
-        // Pobranie tokena CSRF
-        fetch('http://127.0.0.1:8000/api/tokenCNF/')
-          .then(response => response.json())
-          .then(data => {
-            const csrfToken = data.csrf_token;
-            console.log(csrfToken)
-            // Wysłanie żądania POST z tokenem CSRF w nagłówku
-            fetch('http://127.0.0.1:8000/api/register/', { // do zmiany 
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
-              },
-              body: JSON.stringify(formData),
-            })
-              .then(response => response.text())
-              .then(data => {
-                console.log('Success:', data);
-                setRegistrationSuccess(true);
-                setFormData({});
-                reset();
-              })
-              .catch(error => {
-                console.error('Error:', error);
-              });
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-      }
+      setFormData(data);
+      reset();
+    
+      // Przygotowanie danych do wysłania
+      const requestData = {
+        email: data.email,
+        username: data.username,
+        password1: data.password1,
+        password2: data.password2,
+        language: data.language
+      };
+    
+      // Wysłanie żądania POST
+      fetch('http://127.0.0.1:8000/api/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          setRegistrationSuccess(data.status === "Create new user success");
+          setFormData({});
+          reset();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
 
     
 
@@ -57,31 +55,33 @@ export default function Register(){
             <label htmlFor="login">email</label>
             <input type="email" placeholder="email@gmail.com" 
             id ="email" name = "email"required maxlength="50"
-            
+            {...register("email")}
             />
             <label for="username">username</label>
             <input type="text" id ="username" name = "username" 
             required maxlength="50"
+            {...register("username")}
+
             />
             
                  
             <label for="password">password</label>
             <input type="password" id ="password" name = "password1" 
             required maxlength="50"
-            
+              {...register("password1")}
+
             />   
             
                
             <label for="confirmPassword">confirm password</label>
             <input type="password" id ="confirmPassword" name = "password2" 
             required maxlength="50"
-            
+              {...register("password2")}
+
             />   
             
             <label for="language">language</label>
-            <input type="text" id ="language" name = "language" 
-            required maxlength="50"
-            defaultValue="English"/>
+
            
 
             <button class = "custom-btn">Zarejestruj sie</button>

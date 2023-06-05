@@ -53,7 +53,11 @@ def register(request):
         if usr.objects.filter(username=username).exists():
             respond['username'] = "Username is already in use."
 
-        language = lang.get_lang(data.get('language'))
+
+        language = lang.get_lang('en')
+
+        if username == None or password == None or email == None or language == None:
+            respond['field'] = 'field coulndn\'t be ampty'
 
         if len(respond) > 0:
             respond['status'] = "Create new user fail"
@@ -66,6 +70,8 @@ def register(request):
         return JsonResponse(respond)
     else:
         return JsonResponse({'status': 'Accepted only POST'})
+
+    return JsonResponse({'mess': 'critical error'})
 
 
 def is_auth_session(request):

@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate
 from django.test import TestCase, Client, TransactionTestCase
 from django.urls import reverse
 from api.models import *
@@ -173,6 +174,8 @@ class APITestCase(TestCase):
         data_response = response.json()
         self.assertTrue(data_response['status'])
         self.assertEqual(data_response['mess'], 'User password updated.')
+        self.assertFalse(self.client.login(username='testuser_change_password', password='testpassword'))
+        self.assertTrue(self.client.login(username='testuser_change_password', password='testpassword2'))
 
         user.delete()
 
@@ -502,6 +505,7 @@ class ViewsTestCase(TestCase):
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
+# Finsh chatGBT tests
 class TestSearchUser(TestCase):
     def setUp(self):
         self.client = Client()

@@ -18,7 +18,9 @@ class LANGUAGE(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
     def get_lang(lang):
-        if len(lang) == 2:
+        if lang == None:
+            return None
+        elif len(lang) == 2:
             language = LANGUAGE.objects.get(ISO_639_1=lang)
         elif len(lang) == 3:
             language = LANGUAGE.objects.get(ISO_639_2=lang)
