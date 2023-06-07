@@ -141,7 +141,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pl-pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT+2'
 
 USE_I18N = True
 
@@ -159,9 +159,9 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#CSRF_TRUSTED_ORIGINS=['http://localhost','http://127.0.0.1','https://localhost','https://127.0.0.1', 'http://localhost:3000']
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS=['http://localhost','http://127.0.0.1','https://localhost','https://127.0.0.1', 'http://localhost:3000']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_COOKIE_SECURE = False
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

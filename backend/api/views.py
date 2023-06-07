@@ -11,8 +11,11 @@ from rest_framework import permissions, status
 from api.models import User as usr, LANGUAGE as lang, FRIENDSHIP, GENRE, GAME, EVENT, EVENT_PARTICIPANTS
 from datetime import date, datetime
 
+from api.serializer import UserLoginSerializer
+
 
 class IndexView(APIView):
+    permission_classes = (permissions.AllowAny,)
     def get(self, request):
         respond = {'Mess': "This is the api."}
         if request.user.is_authenticated:
@@ -21,21 +24,20 @@ class IndexView(APIView):
 
 
 class LoginView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
     def post(self, request):
         data = request.data
-        username = data.get('username')
-        password = data.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
+        serializer = UserLoginSerializer(data=data)
+        if serializer.is_valid(raise_exception=True):
+            user = serializer.check_user(data)
             log(request, user)
-            # User credentials are valid
-            return Response({'status': 'Login successful'}, status=status.HTTP_200_OK)
-        else:
-            # User credentials are invalid
-            return Response({'status': 'Login failed'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class LogoutView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
     def post(self, request):
         if request.user.is_authenticated:
             logout(request)
@@ -50,6 +52,8 @@ class LogoutView(APIView):
 
 
 class RegisterView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
     def post(self, request):
         respond = {}
         if request.method == 'POST':
@@ -91,6 +95,8 @@ class RegisterView(APIView):
 
 
 class IsAuthSessionView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
     def get(self, request):
         respond = {}
         if request.user.is_authenticated:
@@ -258,19 +264,20 @@ class AcceptInviteView(APIView):
         return JsonResponse(respond)
 
 
-def get_my_profile(request):
-    respond = {}
-    if request.user.is_authenticated:
-        user = usr.objects.get(pk=request.user.pk)
-        lang_user = user.lang.all()
-        respond['status'] = True
-        respond['username'] = user.username
-        respond['email'] = user.email
-        respond['lang'] = {l.name: {'ISO_639_1': l.ISO_639_1, 'ISO_639_2': l.ISO_639_2} for l in lang_user}
-    else:
-        respond['status'] = False
-        respond['mess'] = 'Authorisation fail.'
-    return JsonResponse(respond)
+class GetMyProgile(APIView):
+    def get(request):
+        respond = {}
+        if request.user.is_authenticated:
+            user = usr.objects.get(pk=request.user.pk)
+            lang_user = user.lang.all()
+            respond['status'] = True
+            respond['username'] = user.username
+            respond['email'] = user.email
+            respond['lang'] = {l.name: {'ISO_639_1': l.ISO_639_1, 'ISO_639_2': l.ISO_639_2} for l in lang_user}
+        else:
+            respond['status'] = False
+            respond['mess'] = 'Authorisation fail.'
+        return JsonResponse(respond)
 
 
 def get_users(request):
