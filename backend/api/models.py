@@ -130,6 +130,7 @@ class OPINION(models.Model):
 
 
 class EVENT(models.Model):
+    name = models.CharField(max_length=256)
     game = models.ForeignKey(GAME, on_delete=models.CASCADE)
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_time = models.DateTimeField()
@@ -138,5 +139,4 @@ class EVENT(models.Model):
 class EVENT_PARTICIPANTS(models.Model):
     event = models.ForeignKey(EVENT, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    modelator = models.BooleanField()
     admin = models.BooleanField()

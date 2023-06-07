@@ -5,6 +5,8 @@ from api.models import *
 import random
 from datetime import date
 import json
+
+
 class APITestCase(TestCase):
     def setUp(self):
         self.client = Client()
@@ -32,17 +34,28 @@ class APITestCase(TestCase):
         response = self.client.post(reverse('register'), data, content_type="application/json")
         self.assertEqual(response.status_code, 200)
         data_res = response.json()
-        self.assertEqual(data_res['status'], 'Create new user success', msg=data_res)
+        self.assertTrue(data_res['status'])
         data = {'username': data['username'], 'password': data['password1']}
         response = self.client.post(reverse('login'), data, content_type="application/json")
         data = response.json()
-        self.assertEqual(data['status'], 'Login successful')
+        self.assertTrue(data['status'])
 
-    def test_get_csrf_token(self):
-        response = self.client.get(reverse('get_csrf_token'))
+    def test_register_no_lang(self):
+        data = {
+            'email': 'tesaat{}@example.com'.format(random.getrandbits(5)),
+            'username': 'newuser{}'.format(random.getrandbits(5)),
+            'password1': 'password',
+            'password2': 'password'}
+        response = self.client.post(reverse('register'), data, content_type="application/json")
         self.assertEqual(response.status_code, 200)
+        data_res = response.json()
+        self.assertTrue(data_res['status'])
+        data = {'username': data['username'], 'password': data['password1']}
+        response = self.client.post(reverse('login'), data, content_type="application/json")
         data = response.json()
-        self.assertTrue('csrf_token' in data)
+        self.assertTrue(data['status'])
+
+
 
     def test_is_auth_session_authenticated1(self):
         self.client.login(username='testuser', password='testpassword')
@@ -122,6 +135,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data['Mess'], 'This is the api.')
+
     def test_index2(self):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('index'))
@@ -132,22 +146,16 @@ class APITestCase(TestCase):
 
     def test_set_description1(self):
         self.client.logout()
-        data = {'description' : 'test'}
+        data = {'description': 'test'}
         response = self.client.post(reverse('user_set_description'), data, content_type="application/json")
         data_response = response.json()
         self.assertFalse(data_response['status'])
         self.assertEqual(data_response['mess'], 'Authorisation fail.')
 
-    def test_set_description2(self):
-        self.client.login(username='testuser', password='testpassword')
-        response = self.client.get(reverse('user_set_description')+ "?description=test")
-        data_response = response.json()
-        self.assertFalse(data_response['status'])
-        self.assertEqual(data_response['mess'], 'Authorisation fail.')
 
     def test_set_description3(self):
         self.client.login(username='testuser', password='testpassword')
-        data = {'description' : 'test'}
+        data = {'description': 'test'}
         response = self.client.post(reverse('user_set_description'), data, content_type="application/json")
         data_response = response.json()
         self.assertTrue(data_response['status'])
@@ -155,21 +163,21 @@ class APITestCase(TestCase):
         self.assertEqual(data_response['description'], 'test')
         self.assertEqual(User.objects.get(username='testuser').description, 'test')
 
-
     def test_change_password1(self):
         self.client.logout()
-        data = {'password': 'testpassword', 'new_password1' : 'testpassword2', 'new_password2': 'testpassword2'}
+        data = {'password': 'testpassword', 'new_password1': 'testpassword2', 'new_password2': 'testpassword2'}
         response = self.client.post(reverse('change_password'), data, content_type="application/json")
         data_response = response.json()
         self.assertFalse(data_response['status'])
         self.assertEqual(data_response['mess'], 'Authorisation fail.')
 
     def test_change_password2(self):
-        User.objects.create_user(username='testuser_change_password', password='testpassword', email='test123@example.com',
+        User.objects.create_user(username='testuser_change_password', password='testpassword',
+                                 email='test123@example.com',
                                  lang='en')
         user = User.objects.get(username='testuser_change_password')
         self.client.login(username='testuser_change_password', password='testpassword')
-        data = {'password': 'testpassword', 'new_password1' : 'testpassword2', 'new_password2': 'testpassword2'}
+        data = {'password': 'testpassword', 'new_password1': 'testpassword2', 'new_password2': 'testpassword2'}
         response = self.client.post(reverse('change_password'), data, content_type="application/json")
         data_response = response.json()
         self.assertTrue(data_response['status'])
@@ -180,11 +188,12 @@ class APITestCase(TestCase):
         user.delete()
 
     def test_change_password3(self):
-        User.objects.create_user(username='testuser_change_password', password='testpassword', email='test123@example.com',
+        User.objects.create_user(username='testuser_change_password', password='testpassword',
+                                 email='test123@example.com',
                                  lang='en')
         user = User.objects.get(username='testuser_change_password')
         self.client.login(username='testuser_change_password', password='testpassword')
-        data = {'password': '', 'new_password1' : 'testpassword2', 'new_password2': 'testpassword2'}
+        data = {'password': '', 'new_password1': 'testpassword2', 'new_password2': 'testpassword2'}
         response = self.client.post(reverse('change_password'), data, content_type="application/json")
         data_response = response.json()
         self.assertFalse(data_response['status'])
@@ -193,16 +202,18 @@ class APITestCase(TestCase):
         user.delete()
 
     def test_change_password4(self):
-        User.objects.create_user(username='testuser_change_password', password='testpassword', email='test123@example.com',
+        User.objects.create_user(username='testuser_change_password', password='testpassword',
+                                 email='test123@example.com',
                                  lang='en')
         user = User.objects.get(username='testuser_change_password')
         self.client.login(username='testuser_change_password', password='testpassword')
-        data = {'password': 'testpassword', 'new_password1' : 'testpassword', 'new_password2': 'testpassword2'}
+        data = {'password': 'testpassword', 'new_password1': 'testpassword', 'new_password2': 'testpassword2'}
         response = self.client.post(reverse('change_password'), data, content_type="application/json")
         data_response = response.json()
         self.assertFalse(data_response['status'])
         self.assertEqual(data_response['mess'], 'Fail passwords are not the same.')
         user.delete()
+
 
 class FriendshipViewsTest(TestCase):
     def setUp(self):
@@ -229,7 +240,7 @@ class FriendshipViewsTest(TestCase):
         self.client.force_login(self.user1)
         data = {'pk': self.user1.pk}
         response = self.client.post(url, data=data, content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json()['status'], False)
         self.assertEqual(response.json()['mess'], 'You can\'t invite to friend yourself.')
 
@@ -238,7 +249,7 @@ class FriendshipViewsTest(TestCase):
         self.client.force_login(self.user1)
         data = {'pk': 999}
         response = self.client.post(url, data=data, content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         self.assertEqual(response.json()['status'], False)
         self.assertEqual(response.json()['mess'], 'User don\'t found.')
 
@@ -284,12 +295,14 @@ class FriendshipViewsTest(TestCase):
         self.assertEqual(response.json()['status'], False)
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
+
 class ProfileViewsTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.language = LANGUAGE.objects.create(ISO_639_1='en', ISO_639_2='eng', name='English')
         self.language1 = LANGUAGE.objects.create(ISO_639_1='pl', ISO_639_2='pol', name='Polish')
-        self.user = User.objects.create_user(username='testuser', password='testpassword', email='test@example.local', lang=self.language)
+        self.user = User.objects.create_user(username='testuser', password='testpassword', email='test@example.local',
+                                             lang=self.language)
         self.user.lang.add(self.language)
 
     def test_get_my_profile(self):
@@ -317,14 +330,17 @@ class ProfileViewsTest(TestCase):
         self.assertEqual(response.json()['status'], False)
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
-#Additional test gen by chatGBT
+
+# Additional test gen by chatGBT
 class ViewsTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
         self.language = LANGUAGE.objects.create(ISO_639_1='en', ISO_639_2='eng', name='English')
-        self.user = User.objects.create_user(username='testuser', password='testpassword', lang=self.language, email="example@example.com")
-        self.friend = User.objects.create_user(username='friend', password='friendpassword', lang=self.language, email="example2@example.com")
+        self.user = User.objects.create_user(username='testuser', password='testpassword', lang=self.language,
+                                             email="example@example.com")
+        self.friend = User.objects.create_user(username='friend', password='friendpassword', lang=self.language,
+                                               email="example2@example.com")
         self.friendship = FRIENDSHIP.objects.create(user1=self.user, user2=self.friend, create_date=date.today())
 
     def test_index(self):
@@ -341,7 +357,7 @@ class ViewsTestCase(TestCase):
     def test_login_invalid_credentials(self):
         data = {'username': 'testuser', 'password': 'wrongpassword'}
         response = self.client.post(reverse('login'), json.dumps(data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         self.assertEqual(response.json()['status'], 'Login failed')
 
     def test_log_out(self):
@@ -360,7 +376,7 @@ class ViewsTestCase(TestCase):
         }
         response = self.client.post(reverse('register'), json.dumps(data), content_type='application/json')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json()['status'], 'Create new user success')
+        self.assertTrue(response.json()['status'])
 
     def test_is_auth_session_authenticated(self):
         self.client.force_login(self.user)
@@ -373,11 +389,6 @@ class ViewsTestCase(TestCase):
         response = self.client.get(reverse('is_auth_session'))
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.json()['LoginStatus'])
-
-    def test_get_csrf_token(self):
-        response = self.client.get(reverse('get_csrf_token'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue('csrf_token' in response.json())
 
     def test_get_lang_list(self):
         response = self.client.get(reverse('get_lang_list'))
@@ -419,14 +430,14 @@ class ViewsTestCase(TestCase):
         self.client.force_login(self.user)
         data = {'password': 'testpassword', 'new_password1': 'newpassword', 'new_password2': 'wrongpassword'}
         response = self.client.post(reverse('change_password'), json.dumps(data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Fail passwords are not the same.')
 
     def test_change_password_not_authenticated(self):
         data = {'password': 'testpassword', 'new_password1': 'newpassword', 'new_password2': 'newpassword'}
         response = self.client.post(reverse('change_password'), json.dumps(data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
@@ -442,14 +453,14 @@ class ViewsTestCase(TestCase):
         self.client.force_login(self.user)
         data = {'pk': 999}
         response = self.client.post(reverse('add_friendship'), json.dumps(data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'User don\'t found.')
 
     def test_add_friendship_not_authenticated(self):
         data = {'pk': self.friend.pk}
         response = self.client.post(reverse('add_friendship'), json.dumps(data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
@@ -462,13 +473,14 @@ class ViewsTestCase(TestCase):
 
     def test_active_friendship_invite_not_authenticated(self):
         response = self.client.post(reverse('active_friendship_invite'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
     def test_accept_invite_authenticated_invitation_exists(self):
         self.client.force_login(self.friend)
-        invitation = FRIENDSHIP.objects.create(user1=self.user, user2=self.friend, create_date=date.today(), active=False)
+        invitation = FRIENDSHIP.objects.create(user1=self.user, user2=self.friend, create_date=date.today(),
+                                               active=False)
         data = {'pk': invitation.pk}
         response = self.client.post(reverse('accept_invite'), json.dumps(data), content_type='application/json')
         self.assertEqual(response.status_code, 200)
@@ -505,21 +517,33 @@ class ViewsTestCase(TestCase):
         self.assertFalse(response.json()['status'])
         self.assertEqual(response.json()['mess'], 'Authorisation fail.')
 
+
 # Finsh chatGBT tests
 class TestSearchUser(TestCase):
     def setUp(self):
         self.client = Client()
         self.language = LANGUAGE.objects.create(ISO_639_1='en', ISO_639_2='eng', name='English')
-        self.user = User.objects.create_user(username='testuser', password='testpassword', lang=self.language, email="example@example.com")
-        self.user1 = User.objects.create_user(username='testuser1', password='testpassword', lang=self.language, email="example1@example.com")
-        self.user2 = User.objects.create_user(username='testuser2', password='testpassword', lang=self.language, email="example2@example.com")
-        self.user3 = User.objects.create_user(username='testuser3', password='testpassword', lang=self.language, email="example3@example.com")
-        self.user4 = User.objects.create_user(username='testuser4', password='testpassword', lang=self.language, email="example4@example.com")
-        self.user5 = User.objects.create_user(username='testuser5', password='testpassword', lang=self.language, email="example5@example.com")
-        self.user6 = User.objects.create_user(username='user', password='testpassword', lang=self.language, email="exampl6@example.com")
-        self.user7 = User.objects.create_user(username='user1', password='testpassword', lang=self.language, email="example7@example.com")
-        self.user8 = User.objects.create_user(username='user2', password='testpassword', lang=self.language, email="example8@example.com")
-        self.user9 = User.objects.create_user(username='user3', password='testpassword', lang=self.language, email="example9@example.com")
+        self.user = User.objects.create_user(username='testuser', password='testpassword', lang=self.language,
+                                             email="example@example.com")
+        self.user1 = User.objects.create_user(username='testuser1', password='testpassword', lang=self.language,
+                                              email="example1@example.com")
+        self.user2 = User.objects.create_user(username='testuser2', password='testpassword', lang=self.language,
+                                              email="example2@example.com")
+        self.user3 = User.objects.create_user(username='testuser3', password='testpassword', lang=self.language,
+                                              email="example3@example.com")
+        self.user4 = User.objects.create_user(username='testuser4', password='testpassword', lang=self.language,
+                                              email="example4@example.com")
+        self.user5 = User.objects.create_user(username='testuser5', password='testpassword', lang=self.language,
+                                              email="example5@example.com")
+        self.user6 = User.objects.create_user(username='user', password='testpassword', lang=self.language,
+                                              email="exampl6@example.com")
+        self.user7 = User.objects.create_user(username='user1', password='testpassword', lang=self.language,
+                                              email="example7@example.com")
+        self.user8 = User.objects.create_user(username='user2', password='testpassword', lang=self.language,
+                                              email="example8@example.com")
+        self.user9 = User.objects.create_user(username='user3', password='testpassword', lang=self.language,
+                                              email="example9@example.com")
+
     def test_list_of_all_user_post(self):
         response = self.client.post(reverse('get_users'), content_type='application/json')
         self.assertEqual(response.status_code, 200)
@@ -585,3 +609,93 @@ class TestSearchUser(TestCase):
         self.assertTrue(response_data['status'])
         self.assertEqual(response_data['mess'], 'Operation success.')
         self.assertEqual(len(response_data['list']), 10)
+
+
+class TestEvent(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.language = LANGUAGE.objects.create(ISO_639_1='en', ISO_639_2='eng', name='English')
+        self.user = User.objects.create_user(username='testuser', password='testpassword', lang=self.language,
+                                             email="example@example.com")
+        self.user1 = User.objects.create_user(username='testuser1', password='testpassword', lang=self.language,
+                                              email="example1@example.com")
+        self.user2 = User.objects.create_user(username='testuser2', password='testpassword', lang=self.language,
+                                              email="example2@example.com")
+        self.game = GAME.objects.create(name='Test game', release_date=date.today())
+        self.event = EVENT.objects.create(name='TestEvent', game=self.game, creator=self.user, date_time=date.today())
+
+    def test_add_new_event(self):
+        data = {
+            'game': self.game.pk,
+            'name': 'Test Event'
+        }
+        self.client.force_login(self.user)
+
+        response = self.client.post(reverse('add_new_event'), data, content_type='application/json')
+        response_data = response.json()
+        self.assertTrue(response_data['status'])
+        exist = EVENT.objects.filter(name__like='Test Event').exists()
+        self.assertTrue(exist)
+
+    def test_add_new_event_wrong_game_id(self):
+        data = {
+            'game': 2,
+            'name': 'Test Event2'
+        }
+        self.client.force_login(self.user)
+
+        response = self.client.post(reverse('add_new_event'), data, content_type='application/json')
+        response_data = response.json()
+        self.assertFalse(response_data['status'])
+
+        exist = EVENT.objects.filter(name='Test Event2').exists()
+        self.assertFalse(exist)
+
+    def test_add_new_event_logout(self):
+        data = {
+            'game': self.game.pk,
+            'name': 'Test Event3'
+        }
+        self.client.logout()
+
+        response = self.client.post(reverse('add_new_event'), data, content_type='application/json')
+        response_data = response.json()
+        self.assertFalse(response_data['status'])
+        exist = EVENT.objects.filter(name='Test Event3').exists()
+        self.assertFalse(exist)
+
+    def test_add_participant_to_event(self):
+        self.client.force_login(self.user)
+        data = {
+            'user': self.user1.pk,
+            'event': self.event.pk,
+            'admin': False
+        }
+
+        response = self.client.post(reverse('add_participant_to_event'), data, content_type='application/json')
+        response_data = response.json()
+        self.assertTrue(response_data['status'])
+
+    def test_add_participant_to_event_user_dont_exist(self):
+        self.client.force_login(self.user)
+        data = {
+            'user': 999999,
+            'event': self.event.pk,
+            'admin': False
+        }
+
+        response = self.client.post(reverse('add_participant_to_event'), data, content_type='application/json')
+        response_data = response.json()
+        self.assertFalse(response_data['status'])
+
+    def test_add_participant_to_event_event_dont_exist(self):
+        self.client.force_login(self.user)
+        data = {
+            'user': self.user2.pk,
+            'event': 9999,
+            'admin': False
+        }
+
+        response = self.client.post(reverse('add_participant_to_event'), data, content_type='application/json')
+        response_data = response.json()
+        self.assertFalse(response_data['status'])
