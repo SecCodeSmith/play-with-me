@@ -17,6 +17,7 @@ As indicated in the repository, this project remains **unfinished** and was not 
 
 - **Backend**:
   - Python
+  - Django
 - **Frontend**:
   - JavaScript
   - CSS
